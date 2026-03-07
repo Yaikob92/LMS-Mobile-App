@@ -25,9 +25,9 @@ const RIGHT_SNAP_POINTS = [NEXT, WIDTH - MARGIN_WIDTH];
 interface SliderProps {
   index: number;
   setIndex: (value: number) => void;
-  children: JSX.Element;
-  prev?: JSX.Element;
-  next?: JSX.Element;
+  children: React.JSX.Element;
+  prev?: React.JSX.Element;
+  next?: React.JSX.Element;
 }
 
 const Slider = ({
@@ -75,7 +75,9 @@ const Slider = ({
           {
             velocity: velocityX,
             overshootClamping: isTransitionLeft.value ? true : false,
+            // @ts-ignore
             restSpeedThreshold: isTransitionLeft.value ? 100 : 0.01,
+            // @ts-ignore
             restDisplacementThreshold: isTransitionLeft.value ? 100 : 0.01,
           },
           () => {
@@ -96,7 +98,9 @@ const Slider = ({
           {
             velocity: velocityX,
             overshootClamping: isTransitionRight.value ? true : false,
+            // @ts-ignore
             restSpeedThreshold: isTransitionRight.value ? 100 : 0.01,
+            // @ts-ignore
             restDisplacementThreshold: isTransitionRight.value ? 100 : 0.01,
           },
           () => {

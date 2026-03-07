@@ -90,8 +90,10 @@ export default function Wave({
       <AnimatedPath
         fill={
           Platform.OS === "android"
-            ? children.props.slide.color
-            : children.props.color
+            ? // @ts-ignore
+            children.props.slide.color
+            : // @ts-ignore
+            children.props.color
         }
         animatedProps={animatedProps}
       />

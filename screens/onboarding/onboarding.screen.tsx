@@ -1,26 +1,48 @@
 import Slide from "@/components/onboarding/slide";
 import Slider from "@/components/onboarding/slider";
-import { onBoardingSlides } from "@/config/constants";
-import React from "react";
-import { StyleSheet } from "react-native";
+import { onBoardingSlides } from "@/configs/constants";
+import React, { useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-export default function Slider() {
+export default function OnboardingScreen() {
+  const [index, setIndex] = useState(0);
+  const prev = onBoardingSlides[index - 1];
+  const next = onBoardingSlides[index + 1];
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Slider
         key={index}
         index={index}
-        setindex={setIndex}
+        setIndex={setIndex}
         prev={
-          prev && <Slide slide={prev} totalSlidess={onBoardingSlides.length} />
+          prev && (
+            <Slide
+              index={index}
+              setIndex={setIndex}
+              slide={prev}
+              totalSlides={onBoardingSlides.length}
+            />
+          )
         }
         next={
-          next && <Slide slide={next} totalSlidess={onBoardingSlides.length} />
+          next && (
+            <Slide
+              index={index}
+              setIndex={setIndex}
+              slide={next}
+              totalSlides={onBoardingSlides.length}
+            />
+          )
         }
-      ></Slider>
+      >
+        <Slide
+          slide={onBoardingSlides[index]}
+          index={index}
+          setIndex={setIndex}
+          totalSlides={onBoardingSlides.length}
+        />
+      </Slider>
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({});

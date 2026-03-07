@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/contex/theme.contex";
+import { ThemeProvider } from "@/context/theme.context";
 import { Stack } from "expo-router";
 
 export default function RootLayout() {
@@ -6,7 +6,7 @@ export default function RootLayout() {
     <ThemeProvider>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
-        <Stack.Screen name="(routes)/onboading/index" />
+        <Stack.Screen name="(routes)/onboarding/index" />
       </Stack>
     </ThemeProvider>
   );
