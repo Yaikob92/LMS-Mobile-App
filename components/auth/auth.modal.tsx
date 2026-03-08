@@ -34,13 +34,14 @@ export default function AuthModal({
         } catch (err) {
             console.error("OAuth error", err);
         }
-    }, [googleAuth, githubAuth, appleAuth]);
+    }, [googleAuth, githubAuth, appleAuth, setModalVisible]);
 
     return (
         <BlurView
             style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
             <Pressable
+                onPress={() => { }}
                 style={{
                     width: windowWidth(420),
                     height: windowHeight(250),
@@ -66,7 +67,7 @@ export default function AuthModal({
                         fontFamily: "Poppins_300Light",
                     }}
                 >
-                    It's easier than your imagination!
+                    It&apos;s easier than your imagination!
                 </Text>
                 <View
                     style={{
